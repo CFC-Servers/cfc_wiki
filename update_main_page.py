@@ -20,7 +20,7 @@ repos = []
 
 for item in soup.find_all('a', {'itemprop': 'name codeRepository'}):
     repo_name = item.text.strip()
-    if repo_name == 'cfc_wiki':
+    if repo_name == 'cfc_wiki' or not repo_name.startswith('cfc_'):
         continue
 
     link = '{}{}'.format(github_base, item['href'] + '/wiki')
